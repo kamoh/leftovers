@@ -19,11 +19,21 @@ module Leftovers
     end
 
     def location_s
-      @definitions.first.location_s
+      if @definitions.first
+        @definitions.first.location_s
+      else
+        puts "NO @definitions.first: @definitions: #{@definitions} - #{self}"
+        'zzzz_no_definition_location'
+      end
     end
 
     def highlighted_source(*args)
-      @definitions.first.highlighted_source(*args)
+      if @definitions.first
+        @definitions.first.highlighted_source(*args)
+      else
+        puts "NO @definitions.first: @definitions: #{@definitions}"
+        'zzzz_no_highlighted_source'
+      end
     end
 
     def in_collection?

@@ -99,6 +99,8 @@ module Leftovers
       when :ivasgn, :gvasgn, :cvasgn then calls << node.name
       when :lvasgn then nil # we don't care about lvasgn
       # :nocov:
+      when :casgn
+        puts "FOUND A :casgn NODE: #{node}"
       else raise Leftovers::UnexpectedCase, "Unhandled value #{node.type.inspect}"
         # :nocov:
       end
